@@ -32,7 +32,8 @@ public class StateAttack : PlayerState
 
     public override void Exit()
     {
-        Machine.ChangeState(StateType.Idle);
+        // ChangeState에서 CurrentState의 Exit를 호출하면서 무한 루프 발생
+        //Machine.ChangeState(StateType.Idle);
     }
 
     private void Attack()
@@ -46,7 +47,9 @@ public class StateAttack : PlayerState
         foreach (Collider col in cols)
         {
             damagable = col.GetComponent<IDamagable>();
-            damagable.TakeHit(Controller.AttackValue);
+            // damagable을 포함하지 않는 오브젝트일 수 있으므로 
+            // null 체크를 해줘야 한다.
+            damagable?.TakeHit(Controller.AttackValue);
         }
     }
 
@@ -55,7 +58,12 @@ public class StateAttack : PlayerState
         yield return _wait;
 
         Attack();
-        Exit();
+
+        // Exit에서 State를 Change하게 되면 무한루프가 일어난다. (Exit 함수 주석 참고)
+        //Exit();
+
+        // 상태 변경 코드 수정
+        Machine.ChangeState(StateType.Idle);
     }
 
 }
