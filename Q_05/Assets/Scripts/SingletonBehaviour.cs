@@ -20,7 +20,18 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 
     protected void SingletonInit()
     {
-        _instance = GetComponent<T>();
-        DontDestroyOnLoad(gameObject);
+        // 싱글톤을 초기화 할때는 instance가 할당되었는지를 확인 후 처리해야 한다.
+        //_instance = GetComponent<T>();
+        //DontDestroyOnLoad(gameObject);
+
+        if (_instance == null)
+        {
+            _instance = GetComponent<T>();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
