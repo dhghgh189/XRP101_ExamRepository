@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class PopupController : MonoBehaviour
 {
     [SerializeField] private float _deactiveTime;
-    private WaitForSeconds _wait;
+
+    // WaitForSeconds는 TimeScale의 영향을 받는다
+    //private WaitForSeconds _wait;
+
+    // WaitForSecondsRealtime의 TimeScale의 영향을 받지 않는다.
+    private WaitForSecondsRealtime _wait;
     private Button _popupButton;
 
     [SerializeField] private GameObject _popup;
@@ -18,7 +23,8 @@ public class PopupController : MonoBehaviour
 
     private void Init()
     {
-        _wait = new WaitForSeconds(_deactiveTime);
+        //_wait = new WaitForSeconds(_deactiveTime);
+        _wait = new WaitForSecondsRealtime(_deactiveTime);
         _popupButton = GetComponent<Button>();
         SubscribeEvent();
     }
@@ -37,6 +43,9 @@ public class PopupController : MonoBehaviour
 
     private void Deactivate()
     {
+        // timeScale을 다시 원래대로 되돌려야 한다.
+        GameManager.Intance.Resume();
+
         _popup.gameObject.SetActive(false);
     }
 
