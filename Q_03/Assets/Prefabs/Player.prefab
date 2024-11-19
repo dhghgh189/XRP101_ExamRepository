@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8254210140490314266}
   - component: {fileID: 6604936509990062795}
   - component: {fileID: -117981830401906550}
+  - component: {fileID: 1581539990}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -143,6 +144,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1581539990
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254210140490314265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8254210141019104514
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +169,6 @@ GameObject:
   - component: {fileID: 8254210141019104515}
   - component: {fileID: 8254210141019104518}
   - component: {fileID: 8254210141019104517}
-  - component: {fileID: 8254210141019104516}
   m_Layer: 0
   m_Name: Body
   m_TagString: Player
@@ -227,17 +241,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8254210141019104516
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8254210141019104514}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
