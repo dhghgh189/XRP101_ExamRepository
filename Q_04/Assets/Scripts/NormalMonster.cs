@@ -15,6 +15,7 @@ public class NormalMonster : Monsterbase, IDamagable
 
         if (IsDead)
         {
+            Debug.Log("die");
             Die();
         }
     }
