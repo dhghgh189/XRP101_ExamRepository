@@ -535,6 +535,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3127339600668130625, guid: 0c905d22d069f4c62aa9afea3ae7f3d4, type: 3}
+      propertyPath: _rotateSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127339600668130630, guid: 0c905d22d069f4c62aa9afea3ae7f3d4, type: 3}
+      propertyPath: _targetLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3127339600668130631, guid: 0c905d22d069f4c62aa9afea3ae7f3d4, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
