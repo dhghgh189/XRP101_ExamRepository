@@ -10,12 +10,18 @@ public class GameManager : SingletonBehaviour<GameManager>
     private void Awake()
     {
         SingletonInit();
-        Score = 0.1f;
+        Score = 5f;
     }
 
     public void Pause()
     {
         Time.timeScale = 0f;
+    }
+
+    // timeScale 원복을 위한 함수
+    public void Resume()
+    {
+        Time.timeScale = 1f;
     }
 
     public void LoadScene(int buildIndex)
